@@ -44,7 +44,7 @@
 <style scoped>
 .hero-section {
   /* THE FOLD: Force hero height to viewport minus navbar */
-  min-height: 80vh; 
+  min-height: 65vh; 
   display: flex;
   align-items: center;
   justify-content: center;
