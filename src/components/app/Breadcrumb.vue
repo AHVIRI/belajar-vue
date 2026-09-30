@@ -1,40 +1,42 @@
 <script setup>
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 
-const route = useRoute();
+const route = useRoute()
 
 const breadcrumbs = computed(() => {
-  const matched = route.matched;
-  let crumbs = matched.map((m) => {
-    let path = m.path;
-    if (path.includes(':')) {
-       path = route.path;
-    }
-    return {
-      name: m.name,
-      path: path,
-      meta: m.meta
-    };
-  }).filter(m => m.meta && m.meta.breadcrumb);
+  const matched = route.matched
+  let crumbs = matched
+    .map((m) => {
+      let path = m.path
+      if (path.includes(':')) {
+        path = route.path
+      }
+      return {
+        name: m.name,
+        path: path,
+        meta: m.meta,
+      }
+    })
+    .filter((m) => m.meta && m.meta.breadcrumb)
 
   if (route.name === 'event-detail') {
     crumbs.splice(crumbs.length - 1, 0, {
       path: '/browse/events',
-      meta: { breadcrumb: 'Event List' }
-    });
+      meta: { breadcrumb: 'Event List' },
+    })
   }
 
   // Prepend Beranda if it's not already the first item
   if (crumbs.length === 0 || crumbs[0].meta.breadcrumb !== 'Home') {
     crumbs.unshift({
       path: '/',
-      meta: { breadcrumb: 'Home' }
-    });
+      meta: { breadcrumb: 'Home' },
+    })
   }
 
-  return crumbs;
-});
+  return crumbs
+})
 </script>
 
 <template>
@@ -53,7 +55,7 @@ const breadcrumbs = computed(() => {
 
 <style scoped>
 .breadcrumb {
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
@@ -83,8 +85,8 @@ const breadcrumbs = computed(() => {
   font-weight: 600;
 }
 @media (prefers-color-scheme: dark) {
-    .active-crumb {
-        color: #ccc;
-    }
+  .active-crumb {
+    color: #ccc;
+  }
 }
 </style>

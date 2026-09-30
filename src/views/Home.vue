@@ -1,25 +1,17 @@
 <template>
   <div class="home-page">
-    <!-- VISUAL HIERARCHY: Z-PATTERN & THE FOLD
-         min-height ensures Hero section is 100% visible before scrolling (Above The Fold) -->
     <section class="hero-section">
       <div class="hero-content">
-        <!-- SCALE & CONTRAST: Massive headline with dark color -->
         <h1 class="hero-title">Connect, Discover, and Experience</h1>
         <p class="hero-subtitle">
           A community event platform designed to bring ideas together. Discover hundreds of events near you.
         </p>
-        <!-- FOCAL POINT: High contrast CTA button -->
         <div class="hero-action">
           <router-link to="/browse/events" class="btn-primary">Discover Events</router-link>
         </div>
       </div>
     </section>
 
-    <!-- LAYOUT SYSTEM & VISUAL HIERARCHY: 
-         - Grid System: 3-column layout
-         - Grouping (Common Regions): Each card groups related info using borders & padding
-    -->
     <section class="features-section">
       <div class="features-header">
         <h2>Why Choose Gatherly?</h2>
